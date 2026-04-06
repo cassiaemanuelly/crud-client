@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/crud-entidade-cliente.iml" filepath="$PROJECT_DIR$/.idea/crud-entidade-cliente.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/crud-client.iml" filepath="$PROJECT_DIR$/.idea/crud-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crud-entidade-cliente/crud-entidade-cliente.iml" filepath="$PROJECT_DIR$/crud-entidade-cliente/crud-entidade-cliente.iml" />
     </modules>
   </component>
 </project>

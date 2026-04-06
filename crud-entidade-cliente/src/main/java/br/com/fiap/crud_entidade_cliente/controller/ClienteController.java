@@ -10,7 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     @Autowired
@@ -28,14 +28,16 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public Page<DadosListagemCliente> buscarPorId(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        return clienteRepository.findAllByAtivoTrue(paginacao).map(DadosListagemCliente::new);
+    public DadosDetalhamentoCliente buscarPorId(@PathVariable Long id) {
+        var cliente = clienteRepository.getReferenceById(id);
+        return new DadosDetalhamentoCliente(cliente);
     }
 
     @PutMapping
     @Transactional
     public void atualizarCliente(@RequestBody @Valid DadosAtualizarCliente dados) {
         var cliente = clienteRepository.getReferenceById(dados.id());
+        cliente.atualizarCliente(dados);
     }
 
     @DeleteMapping("/{id}")
